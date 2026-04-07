@@ -5,41 +5,40 @@ from datetime import datetime
 # 1. 페이지 설정
 st.set_page_config(page_title="우리 반 보석함", page_icon="💎", layout="centered")
 # --- 배경 꾸미기 (CSS) ---
+# --- 배경 및 폰트 설정 (CSS) ---
 st.markdown(
     """
     <style>
-    /* 전체 배경색을 은은한 보석 빛깔 그라데이션으로 변경 */
+    /* 1. 구글 웹폰트(나눔고딕) 불러오기 */
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+    /* 2. 전체 폰트 적용 */
+    html, body, [class*="css"]  {
+        font-family: 'Nanum Gothic', sans-serif;
+    }
+
+    /* 3. 모바일에서 글자가 너무 작지 않게 조정 */
     .stApp {
         background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
     }
 
-    /* 입력창(카드) 스타일 변경 */
+    /* 입력창 카드 스타일 */
     div[data-testid="stForm"] {
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    /* 제목 글자 스타일 */
+    /* 모바일 가독성을 위해 제목 크기 조절 */
     h1 {
+        font-size: 1.8rem !important;
         color: #5a4a75;
-        font-family: 'Nanum Gothic', sans-serif;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
     }
 
-    /* 버튼 스타일 */
-    .stButton>button {
-        background-color: #d4af37; /* 금색 느낌 */
-        color: white;
-        border-radius: 10px;
-        border: none;
-        transition: 0.3s;
-    }
-    .stButton>button:hover {
-        background-color: #b8860b;
-        transform: scale(1.05);
+    h3 {
+        font-size: 1.2rem !important;
     }
     </style>
     """,
