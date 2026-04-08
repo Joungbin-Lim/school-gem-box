@@ -109,10 +109,10 @@ if mode == "학생용 (내 마음 기록)":
 elif mode == "교사용 (선생님 확인)":
     st.title("👩‍🏫 우리 반 보석 관리함")
 
-    # 비밀번호는 0000으로 설정되어 있습니다 (필요시 수정 가능)
+    # 비밀번호는 ----으로 설정되어 있습니다 (필요시 수정 가능)
     admin_pw = st.sidebar.text_input("관리자 비밀번호를 입력하세요", type="password")
 
-    if admin_pw == "0000":
+    if admin_pw == st.secrets["ADMIN_PASSWORD"]:
         if st.session_state.db.empty:
             st.info("아직 도착한 보석들의 마음이 없습니다.")
         else:
